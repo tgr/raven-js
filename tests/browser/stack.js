@@ -6,7 +6,7 @@
         "duration": 1,
         "tests": []
     };
-    //Raven.config('http://public@example.com/1').install();
+    Raven.config('http://public@example.com/1').install();
     TraceKit.report.subscribe(function (stackinfo) {
         window.global_test_results.tests.push({
             "name": "captureException stack trace",
@@ -21,6 +21,12 @@
     }
     function stackElement2() {
         iAmAnError();
+    }
+
+    try {
+        stackElement1('bar');
+    } catch(e) {
+        Raven.captureException(e);
     }
 
     try {
