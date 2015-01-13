@@ -23,6 +23,7 @@ var TraceKit = {
     // 3 lines before, the offending line, 3 lines after
     linesOfContext: 7
 };
+window.TraceKit = TraceKit;
 
 // global reference to slice
 var _slice = [].slice;
